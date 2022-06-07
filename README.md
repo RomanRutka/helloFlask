@@ -39,3 +39,16 @@ eval "$(pyenv virtualenv-init -)"
 - `pyenv global NUMVERSION` pour préciser la verison de python pour l'interpréteur global de la machine
 - `pyenv local NUMVERSION` pour préciser la version de python utilisée dans le répertoire où on se trouve (i.e. pour un projet donné)
 
+
+## Installation et utilisation de poetry :
+### Installation :
+- `curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -` (peut nécessité un redémarrage du pc)
+
+### Utilisation :
+- Pour vérifier que poetry est bien installé : `poetry --version` 
+- Créer un nouveau projet : `poetry new PROJECTNAME` 
+- Ajouter un package aux dépendances : `poetry add PACKAGENAME` exemple : `poetry add pandas`
+- Installer l'appli : `poetry install`
+- Utiliser l'appli (après installation) : `poetry run APPLICATIONNAME`
+- LE PLUS IMPORTANT : créer un fichier .whl avec toutes les dépendances : `poetry build`. Crée un dossier ./dist dans lequel se trouve le .whl
+
