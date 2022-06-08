@@ -21,6 +21,7 @@ def get_post(post_id):
 app = Flask(__name__) 			# instantiation application
 app.config['SECRET_KEY'] = 'mdp' # Définit le mot de passe 'mdp' pour la fonction flash()
 
+# Set an index for the site
 @app.route("/")
 def index(user = 'Roman'):						# association d’une route (URL) avec la fonction suivante
 	# return "<p>Bienvenue chez moi</p>" # on renvoie une chaîne de caractères
@@ -29,17 +30,18 @@ def index(user = 'Roman'):						# association d’une route (URL) avec la foncti
 	conn.close()
 	return render_template('index.html', name = user, posts=posts)
 
+# Create a specific page with an image (there also need to be a page_avec_image.html file in a subfolder)
 @app.route('/image')
 def page_avec_image():
-    # header = "<h1>{% block title %} Hello {{name}} ! {% endblock %}     </h1>)"
-	# img = '<img src="/home/roman.rutka@Digital-Grenoble.local/Documents/Module Projet Orienté Objet/CasEtude_3/helloFlask/helloflask/static/images.image.jpg"/>'
 	return render_template('page_avec_image.html')
 
+# Creates a page for every post that is and will be created
 @app.route('/<int:post_id>')
 def post(post_id):
     post = get_post(post_id)
     return render_template('post.html', post=post)
 
+# Enables to get a page where you can create a new page
 @app.route('/create', methods=('GET', 'POST'))
 def create():
 	if request.method == 'POST':
@@ -57,6 +59,7 @@ def create():
 			return redirect(url_for('index'))
 	return render_template('create.html')
 
+# Enables to edit an existing post
 @app.route('/<int:id>/edit', methods=('GET', 'POST'))
 def edit(id):
     post = get_post(id)
@@ -78,6 +81,8 @@ def edit(id):
 
     return render_template('edit.html', post=post)
 
+
+# Enables to delete an existing post. The option will be available in the edit page
 @app.route('/<int:id>/delete', methods=('POST',))
 def delete(id):
     post = get_post(id)
@@ -90,7 +95,7 @@ def delete(id):
 
 app.run(debug = True) # debug = True permet de faire en sorte que tout changement dans index.html s'actualise automatiquement			# démarrage de l’appli 
 
-
+"""The following is not used, as jinja2 is more or less included in Flask"""
 # # Jinja :
 # # code from https://jinja.palletsprojects.com/en/3.1.x/api/#basics
 
