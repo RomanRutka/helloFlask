@@ -1,0 +1,26 @@
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{{ url_for('static', filename= 'css/styles.css') }}">
+        <title>FlaskBlog</title>
+    </head>
+    <body>
+        <h1>Hello {{name}} !</h1>  <!-- # ajout de la variable ‘name’ dans la page -->
+    <!-- </body>
+</html> -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Hello {{name}} ! {% endblock %}     </h1>
+    {% for post in posts %}
+        <a href="{{ url_for('post', post_id=post['id']) }}">
+            <h2>{{ post['title'] }}</h2>
+        </a>
+        <span class="badge badge-primary">{{ post['created'] }}</span>
+        <a href="{{ url_for('edit', id=post['id']) }}">
+            <span class="badge badge-warning">Edit</span>
+        </a>
+        <hr>
+    {% endfor %}
+{% endblock %}

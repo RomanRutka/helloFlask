@@ -51,4 +51,4 @@ eval "$(pyenv virtualenv-init -)"
 - Installer l'appli : `poetry install`
 - Utiliser l'appli (après installation) : `poetry run APPLICATIONNAME`
 - LE PLUS IMPORTANT : créer un fichier .whl avec toutes les dépendances : `poetry build`. Crée un dossier ./dist dans lequel se trouve le .whl
-
+- après au moins 1 `poetry install`, la ligne `poetry shell` permet de se mettre dans l'environnement virtuel créé automatiquement par poetry 
