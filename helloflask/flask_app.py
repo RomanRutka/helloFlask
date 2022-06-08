@@ -29,6 +29,11 @@ def index(user = 'Roman'):						# association d’une route (URL) avec la foncti
 	conn.close()
 	return render_template('index.html', name = user, posts=posts)
 
+@app.route('/image')
+def page_avec_image():
+    # header = "<h1>{% block title %} Hello {{name}} ! {% endblock %}     </h1>)"
+	# img = '<img src="/home/roman.rutka@Digital-Grenoble.local/Documents/Module Projet Orienté Objet/CasEtude_3/helloFlask/helloflask/static/images.image.jpg"/>'
+	return render_template('page_avec_image.html')
 
 @app.route('/<int:post_id>')
 def post(post_id):
