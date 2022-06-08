@@ -1,6 +1,13 @@
 h1 {
-    border: 2px #eee solid;
-    color: brown;
+    /* border: 5px #eee solid; */
+    color: rgb(138, 15, 40);
     text-align: center;
+    text-shadow: 12px;
+    font-style: italic;
     padding: 10px;
+    font-size: 64px;
+    box-shadow:4px 4px 12px rgb(85, 84, 84);  
+    font-weight:lighter;
+    background-image:url(../images/download.jpeg);
+    line-height:120px;
 }
