@@ -2,7 +2,7 @@ import sqlite3
 from flask import Flask 		# import de l’objet Flask
 from flask import render_template, request, url_for, flash, redirect 
 from werkzeug.exceptions import abort
-
+import init_db
 
 def get_db_connection():
     conn = sqlite3.connect('database.db')
@@ -93,7 +93,7 @@ def delete(id):
     flash('"{}" was successfully deleted!'.format(post['title']))
     return redirect(url_for('index'))
 
-app.run(debug = True) # debug = True permet de faire en sorte que tout changement dans index.html s'actualise automatiquement			# démarrage de l’appli 
+app.run(debug = True, host = "0.0.0.0") # debug = True permet de faire en sorte que tout changement dans index.html s'actualise automatiquement			# démarrage de l’appli 
 
 """The following is not used, as jinja2 is more or less included in Flask"""
 # # Jinja :

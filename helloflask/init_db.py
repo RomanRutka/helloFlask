@@ -13,7 +13,7 @@ cur.execute("INSERT INTO posts (title, content) VALUES (?, ?)",
             )
 
 cur.execute("INSERT INTO posts (title, content) VALUES (?, ?)",
-            ('Second Post, this one with a picture', 'Content for the second post : <img src="/home/roman.rutka@Digital-Grenoble.local/Documents/Module Projet Orienté Objet/CasEtude_3/helloFlask/helloflask/static/images.image.jpg"/>')
+            ('Second Post', 'Content for the second post')
             )
 
 connection.commit()
